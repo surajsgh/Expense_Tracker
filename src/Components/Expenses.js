@@ -1,9 +1,9 @@
 import ExpenseItem from './ExpenseItem.js';
-import './Expenses.css';
+// import './Expenses.css';
 
 function Expenses(props) {
   return (
-    <div className="expenses">
+    <div>
       <ExpenseItem
         title={props.items.title}
         amount={props.items.amount}
