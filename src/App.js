@@ -2,7 +2,7 @@ import Expenses from './Components/Expenses/Expenses';
 import Card from './Components/UI/Card';
 import './Components/Expenses/Expenses.css';
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: 'e1',
