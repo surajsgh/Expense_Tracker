@@ -1,9 +1,12 @@
+import React, { useState } from 'react';
 import Expenses from './Components/Expenses/Expenses';
 import Card from './Components/UI/Card';
 import NewExpense from './Components/NewExpenses/NewExpense';
+import ExpenseFilter from './Components/Expenses/ExpenseFilter';
 import './Components/Expenses/Expenses.css';
 
 const App = () => {
+  const [selectYear, setSelectYear] = useState('2021');
   const expenses = [
     {
       id: 'e1',
@@ -31,9 +34,12 @@ const App = () => {
     console.log(savedExpenseData);
   };
 
+  const selectYearHandler = selectedYearData => setSelectYear(selectedYearData);
+
   return (
     <Card className="expenses">
       <NewExpense onAddExpense={addExpenseHandler} />
+      <ExpenseFilter selected={selectYear} onSelectYear={selectYearHandler} />
       <Expenses items={expenses[0]} />
       <Expenses items={expenses[1]} />
       <Expenses items={expenses[2]} />
