@@ -39,15 +39,19 @@ const App = () => {
     console.log(savedExpenseData);
   };
 
-  const selectYearHandler = selectedYearData => setSelectYear(selectedYearData);
+  const selectYearHandler = selectedYearData => {
+    setSelectYear(selectedYearData);
+  };
 
   return (
     <Card className="expenses">
       <NewExpense onAddExpense={addExpenseHandler} />
       <ExpenseFilter selected={selectYear} onSelectYear={selectYearHandler} />
-      {expenses.map(expense => (
-        <Expenses items={expense} />
-      ))}
+      {expenses
+        .filter(expense => +expense.date.getFullYear() === +selectYear)
+        .map(expense => (
+          <Expenses items={expense} />
+        ))}
       {/* <Expenses items={expenses[0]} />
       <Expenses items={expenses[1]} />
       <Expenses items={expenses[2]} />
