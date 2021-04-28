@@ -5,6 +5,7 @@ const Expenses = props => {
   return (
     <div>
       <ExpenseItem
+        key={props.items.id}
         title={props.items.title}
         amount={props.items.amount}
         date={props.items.date}
