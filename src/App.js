@@ -40,10 +40,13 @@ const App = () => {
     <Card className="expenses">
       <NewExpense onAddExpense={addExpenseHandler} />
       <ExpenseFilter selected={selectYear} onSelectYear={selectYearHandler} />
-      <Expenses items={expenses[0]} />
+      {expenses.map(expense => (
+        <Expenses items={expense} />
+      ))}
+      {/* <Expenses items={expenses[0]} />
       <Expenses items={expenses[1]} />
       <Expenses items={expenses[2]} />
-      <Expenses items={expenses[3]} />
+      <Expenses items={expenses[3]} /> */}
     </Card>
   );
 };
