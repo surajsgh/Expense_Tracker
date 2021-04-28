@@ -1,5 +1,6 @@
 import Expenses from './Components/Expenses/Expenses';
 import Card from './Components/UI/Card';
+import NewExpense from './Components/NewExpenses/NewExpense';
 import './Components/Expenses/Expenses.css';
 
 const App = () => {
@@ -27,12 +28,13 @@ const App = () => {
 
   return (
     <Card className="expenses">
+      <NewExpense />
       <Expenses items={expenses[0]} />
       <Expenses items={expenses[1]} />
       <Expenses items={expenses[2]} />
       <Expenses items={expenses[3]} />
     </Card>
   );
-}
+};
 
 export default App;
