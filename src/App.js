@@ -3,6 +3,7 @@ import Expenses from './Components/Expenses/Expenses';
 import Card from './Components/UI/Card';
 import NewExpense from './Components/NewExpenses/NewExpense';
 import ExpenseFilter from './Components/Expenses/ExpenseFilter';
+import ExpenseChart from './Components/Chart/ExpenseChart';
 import './Components/Expenses/Expenses.css';
 
 const DUMMY_EXPENSES = [
@@ -51,6 +52,7 @@ const App = () => {
     <Card className="expenses">
       <NewExpense onAddExpense={addExpenseHandler} />
       <ExpenseFilter selected={selectYear} onSelectYear={selectYearHandler} />
+      <ExpenseChart expenses={filteredExpenses} />
       {filteredExpenses.length === 0 ? (
         <p>No expenses found.</p>
       ) : (
