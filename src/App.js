@@ -48,20 +48,20 @@ const App = () => {
     expense => +expense.date.getFullYear() === +selectYear
   );
 
+  let expensesContent = <p>No expenses found.</p>;
+
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses.map(expense => (
+      <Expenses items={expense} />
+    ));
+  }
+
   return (
     <Card className="expenses">
       <NewExpense onAddExpense={addExpenseHandler} />
       <ExpenseFilter selected={selectYear} onSelectYear={selectYearHandler} />
       <ExpenseChart expenses={filteredExpenses} />
-      {filteredExpenses.length === 0 ? (
-        <p>No expenses found.</p>
-      ) : (
-        filteredExpenses.map(expense => <Expenses items={expense} />)
-      )}
-      {/* <Expenses items={expenses[0]} />
-      <Expenses items={expenses[1]} />
-      <Expenses items={expenses[2]} />
-      <Expenses items={expenses[3]} /> */}
+      {expensesContent}
     </Card>
   );
 };
